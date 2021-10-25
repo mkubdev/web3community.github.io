@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FAQ</title><link rel="stylesheet" type="text/css" href="/static/css/style.css"><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet"><link rel="icon" href="/static/img/favicon.ico" type="image/x-icon"></head><body><nav id="header" class="w-full z-30 top-0 text-white bg-white relative"><div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2"><div class="pl-4 flex items-center"><a class="toggleColour text-black no-underline hover:no-underline font-bold text-2xl lg:text-2xl" href="/"><img src="/static/img/logo.png" alt="Web 3 Community" class="h-16 items-start"></a></div><div class="block lg:hidden pr-4"><button id="nav-toggle"><span class="transform h-1 w-8 m-1 bg-blue-600 block toggle transition-all"></span> <span class="transform h-1 w-8 m-1 bg-blue-600 block toggle transition-all"></span> <span class="transform h-1 w-8 m-1 bg-blue-600 block toggle transition-all"></span></button></div><div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content"><ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center"><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="/">HOME</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="#">LEARN</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="/blog">BLOG</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="#">ABOUT</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="/projects">PROJECTS</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="/community">COMMUNITY PARTNERS</a></li><li class="nav__item mr-3"><a @click="isOpen = false" class="text-ml inline-block text-blue-800 no-underline hover:text-indigo-500 py-2 px-4 items-center" href="/moderators">OUR MODERATORS</a></li></ul></div></div><hr class="border-b border-gray-100 opacity-25 my-0 py-0"></nav><script>/*Toggle dropdown list*/
+  /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
+
+  var navMenuDiv = document.getElementById("nav-content");
+  var navMenu = document.getElementById("nav-toggle");
+
+  document.onclick = check;
+  function check(e) {
+    var target = (e && e.target) || (event && event.srcElement);
+    //Nav Menu
+    if (!checkParent(target, navMenuDiv)) {
+      // click NOT on the menu
+      if (checkParent(target, navMenu)) {
+        // click on the link
+        toggleMenu() ;
+        if (navMenuDiv.classList.contains("hidden")) {
+          navMenuDiv.classList.remove("hidden");
+        } else {
+          navMenuDiv.classList.add("hidden");
+        }
+      } else {
+        // click  outside link and menu is not hidden, toggle.
+        if (!navMenuDiv.classList.contains("hidden")) {
+          toggleMenu() ;
+        }
+        // click both outside link and outside menu, hide menu
+        navMenuDiv.classList.add("hidden");
+      }
+    }
+  }
+  function checkParent(t, elm) {
+    while (t.parentNode) {
+      if (t == elm) {
+        return true;
+      }
+      t = t.parentNode;
+    }
+    return false;
+  }
+
+  function toggleMenu() {
+    const navToggle = document.getElementsByClassName("toggle");
+    navToggle.item(1).classList.toggle("rotate-45");
+    navToggle.item(0).classList.toggle("hidden");
+    navToggle.item(2).classList.toggle("-translate-y-2");
+    navToggle.item(2).classList.toggle("-rotate-45");
+  }</script><section class="text-white text-center" style="background-color:#00007F"><div class="px-20 py-20"><h1 class="font-bold text-5xl antialiased">FAQ</h1><p class="mt-6 font-light antialiased">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></section><div class="flex flex-col"><div class="bg-white pt-12 pb-12 flex-1 px-8"><div class="container mx-auto"><div class="flex flex-wrap md:-mx-3 gap-6"><ul class="w-full"><li class="bg-white faq-accordion" x-data="accordion(1)"><h2 @click="handleClick()" class="flex flex-row justify-between items-center font-semibold p-6 cursor-pointer border-t-0 border-l-2 border-r-2 border-b-2 border-gray-100"><span>example 1</span> <svg :class="handleRotate()" class="fill-current text-black h-6 w-6 transform transition-transform duration-500" viewBox="0 0 20 20"><path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path></svg></h2><div x-ref="tab" :style="handleToggle()" class="border-l-4 border-blue-600 overflow-hidden max-h-0 duration-500 transition-all bg-gray-100"><p class="p-6 text-gray-500 text-xs">lorem ipsum</p></div></li><li class="bg-white faq-accordion" x-data="accordion(2)"><h2 @click="handleClick()" class="flex flex-row justify-between items-center font-semibold p-6 cursor-pointer border-t-0 border-l-2 border-r-2 border-b-2 border-gray-100"><span>example 2</span> <svg :class="handleRotate()" class="fill-current text-black h-6 w-6 transform transition-transform duration-500" viewBox="0 0 20 20"><path d="M13.962,8.885l-3.736,3.739c-0.086,0.086-0.201,0.13-0.314,0.13S9.686,12.71,9.6,12.624l-3.562-3.56C5.863,8.892,5.863,8.611,6.036,8.438c0.175-0.173,0.454-0.173,0.626,0l3.25,3.247l3.426-3.424c0.173-0.172,0.451-0.172,0.624,0C14.137,8.434,14.137,8.712,13.962,8.885 M18.406,10c0,4.644-3.763,8.406-8.406,8.406S1.594,14.644,1.594,10S5.356,1.594,10,1.594S18.406,5.356,18.406,10 M17.521,10c0-4.148-3.373-7.521-7.521-7.521c-4.148,0-7.521,3.374-7.521,7.521c0,4.147,3.374,7.521,7.521,7.521C14.148,17.521,17.521,14.147,17.521,10"></path></svg></h2><div x-ref="tab" :style="handleToggle()" class="border-l-4 border-blue-600 overflow-hidden max-h-0 duration-500 transition-all bg-gray-100"><p class="p-6 text-gray-500 text-xs">lorem ipsum</p></div></li><script>document.addEventListener('alpine:init', () => {
+        Alpine.store('accordion', {
+            tab: 0
+        });
+
+        Alpine.data('accordion', (idx) => ({
+            init() {
+                this.idx = idx;
+            },
+            idx: -1,
+            handleClick() {
+                this.$store.accordion.tab = this.$store.accordion.tab === this.idx ? 0 : this.idx;
+            },
+            handleRotate() {
+                return this.$store.accordion.tab === this.idx ? 'rotate-180' : '';
+            },
+            handleToggle() {
+                return this.$store.accordion.tab === this.idx ?
+                    `max-height: ${this.$refs.tab.scrollHeight}px` : '';
+            }
+        }));
+    })</script></ul></div></div></div></div><footer class="" style="background:#1F2E35"><div class="container mx-auto px-8"><div class="w-full flex flex-col md:flex-row py-6"><div class="flex-wrap flex-1 md:px-4 mb-6 text-black"><p class="text-white mb-3 md:mb-6">Socials</p><div class="space-x-4"><a aria-hidden="true" class="text-white fa fa-envelope fa-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100" href="mailto:web3community@gmail.com" rel="noreferrer" target="_blank" title="mail us"></a> <a aria-hidden="true" class="text-white fa fa-instagram fa-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100" href="https://www.instagram.com/web3community/" rel="noreferrer" target="_blank" title="follow us"></a> <a aria-hidden="true" class="text-white fa fa-twitter fa-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100" href="https://twitter.com/web3community" rel="noreferrer" target="_blank" title="follow us"></a> <a aria-hidden="true" class="text-white fa fa-linkedin fa-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100" href="https://www.linkedin.com/company/web3community" rel="noreferrer" target="_blank" title="follow us"></a> <a aria-hidden="true" class="text-white fa fa-github fa-lg transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-100" href="https://github.com/web3community" rel="noreferrer" target="_blank" title="follow us"></a></div></div><div class="flex-1"><p class="text-white md:mb-6">Resources</p><ul class="list-reset mb-6"><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">About Us</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Blog</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Contact</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="/faq" class="no-underline text-gray-400 hover:text-blue-500">FAQ</a></li></ul></div><div class="flex-1"><p class="text-white md:mb-6">Legal Stuff</p><ul class="list-reset mb-6"><li class="mt-2 mr-2 md:block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Disclaimer</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Financing</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Privacy Policy</a></li><li class="mt-2 mr-2 block md:mr-0"><a href="#" class="no-underline text-gray-400 hover:text-blue-500">Terms of Service</a></li></ul></div><div class="flex-1"><p class="text-white md:mb-6">Contact</p><ul class="list-reset mb-6"><li class="mt-2 inline-block mr-2 md:block md:mr-0"><a href="mailto:web3community@gmail.com" class="no-underline text-gray-400 hover:text-blue-500">web3community@gmail.com</a></li><li class="mt-2 inline-block mr-2 md:block md:mr-0"><a class="no-underline text-gray-400">Global Open Source</a></li><li class="mt-2 inline-block mr-2 md:block md:mr-0"><a class="no-underline text-gray-400">Community for Dapps & $Dev</a></li></ul></div></div></div><div style="background:#1D292F" class="text-center text-sm font-light py-4 text-gray-200"><small>Copyright © Web3 Community 2021. Made with ❤️ by <a href="https://web3community.github.io" target="_blank" class="underline">Web3 Community</a> • <a href="https://github.com/web3community/web3community.github.io" class="underline" target="_blank" rel="noopener">View on GitHub</a></small></div></footer><script src="/static/js/alpine.js"></script><script src="//unpkg.com/alpinejs" defer="defer"></script></body></html>
